@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:body>
+        <ui:composition>
+          <ul id="slide-out" class="side-nav">
+            <li><div class="userView cyan darken-1">
+              <a href="#!user"><img class="circle" src="https://mchb.hrsa.gov/sites/default/files/mchb/AboutMCHB/healthworkforce.png"/></a>
+              <a href="#!name"><span class="white-text name">Administrator</span></a>
+              <a href="#!email"><span class="white-text email">admin@rs.id</span></a>
+            </div></li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a href="../index.xhtml" class="collapsible-header"><i class="material-icons">store</i>Halaman Utama</a>
+                    </li>
+                    <li>
+                      <a class="collapsible-header"><i class="material-icons">group</i>Data Dokter<i class="material-icons right">arrow_drop_down</i></a>
+                      <div class="collapsible-body">
+                        <ul>
+                      <h:form> 
+                          <li>
+                              <h:commandLink action = "#{navigasiBean.goToDokterInfoForm}" actionListener="#{dokterBean.add}"  >
+                                  <i class="material-icons">person_add</i>Tambah Data Dokter
+                              </h:commandLink>
+                          </li>
+                          <li>
+                              <h:commandLink action="#{navigasiBean.goToDokterListForm()}">
+                                  <i class="material-icons">list</i>Lihat Data Dokter
+                              </h:commandLink> 
+                          </li>
+                    </h:form>
+                      </ul>
+                    </div>
+                  </li>
+                    <li>
+                    <a class="collapsible-header"><i class="material-icons">business</i>Data Kamar<i class="material-icons right">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                      <ul>
+                    <h:form> 
+                        <li>
+                            <h:commandLink action = "#{navigasiBean.goToKamarInfoForm}" actionListener="#{kamarBean.add}" >
+                                <i class="material-icons">note_add</i>Tambah Data Kamar
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink action="#{navigasiBean.goToKamarListForm()}">
+                                <i class="material-icons">list</i>Lihat Data Kamar
+                            </h:commandLink> 
+                        </li>
+                    </h:form>
+                      </ul>
+                    </div>
+                  </li>
+                    <li>
+                    <a class="collapsible-header"><i class="material-icons">assignment_ind</i>Data Pasien<i class="material-icons right">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                      <ul>
+                    <h:form> 
+                        <li>
+                            <h:commandLink action = "#{navigasiBean.goToPasienInfoForm}" actionListener="#{pasienBean.add}" >
+                                <i class="material-icons">person_add</i>Tambah Data Pasien
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink action="#{navigasiBean.goToPasienListForm()}">
+                                <i class="material-icons">list</i>Lihat Data Pasien
+                            </h:commandLink> 
+                        </li>
+                    </h:form>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+            </li>
+          </ul>  
+        </ui:composition>
+    </h:body>
+</html>

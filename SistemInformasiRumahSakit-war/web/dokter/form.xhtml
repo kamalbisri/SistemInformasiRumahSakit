@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="#{request.contextPath}/layout/default/index.xhtml">
+            <ui:define name="container">
+                <div class="row">
+                <div class="col s12 m12">
+                    <div class="card-panel white">
+                        <div class="section">
+                            <h5 class="teal-text" align="center">FORM IDENTITAS DOKTER</h5>
+                        </div>
+                        <div class="divider"></div>
+                        <div style="margin-bottom:10px;"></div>
+                        <h:form>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <div class="input-field">
+                                        <h:inputText required="true" p:placeholder="Nama" id="nama" value="#{dokterBean.dokter.nama}" label="Nama" styleClass="validate" requiredMessage="Nama Tidak Boleh Kosong ">
+                                            <f:validateLength minimum = "3" maximum = "20" />
+                                        </h:inputText>
+                                       <label for="nama" class="teal-text">Nama</label>
+                                       <h:message for="nama" style="color:red" />
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <div class="input-field">
+                                        <h:inputText required="true" p:placeholder="Spesialis" id="spesialis" value="#{dokterBean.dokter.spesialis}" label="Spesialis" styleClass="validate" requiredMessage="Spesialis Tidak Boleh Kosong ">
+                                            <f:validateLength minimum = "3" maximum = "14" />
+                                        </h:inputText>
+                                       <label for="spesialis" class="teal-text">Spesialis</label>
+                                       <h:message for="spesialis" style="color:red" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m3">
+                                    <label for="gender" class="teal-text">Jenis Kelamin</label>
+                                    <h:selectOneRadio value="#{dokterBean.dokter.jk}" id="jk"> 
+                                        <f:selectItem itemValue = "L" itemLabel = "L" /> 
+                                        <f:selectItem itemValue = "P" itemLabel = "P" />
+                                    </h:selectOneRadio>  
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <div class="input-field">
+                                        <h:inputText p:placeholder="Tempat Lahir" id="tlahir" value="#{dokterBean.dokter.TLahir}" styleClass="validate"  />
+                                       <label for="tlahir" class="teal-text">Tempat Lahir</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <div class="input-field">
+                                        <h:inputText required="true" p:placeholder="Tanggal Lahir" id="tgllahir"  value="#{dokterBean.dokter.tglLahir}" styleClass="datepicker" requiredMessage="Tanggal Lahir Tidak Boleh Kosong">
+                                            <f:convertDateTime pattern="dd-MMM-yyyy" />
+                                        </h:inputText>
+                                       <label for="tgllahir" class="teal-text">Tanggal Lahir</label>
+                                        <h:message for="tgllahir" style="color:red" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <div class="input-field">
+                                        <h:inputText required="true" p:placeholder="Email" id="email" value="#{dokterBean.dokter.email}" label="Email" styleClass="validate" requiredMessage="Email Tidak Boleh Kosong ">
+                                            <f:validateLength minimum = "3" maximum = "25" />
+                                        </h:inputText>
+                                       <label for="email" class="teal-text">Email</label>
+                                       <h:message for="email" style="color:red" />
+                                    </div>
+                                </div>
+                                <div class="col s12 m6">
+                                    <div class="input-field">
+                                        <h:inputText required="true" p:placeholder="No Handphone" id="nohp" value="#{dokterBean.dokter.nohp}" label="No Handphone" styleClass="validate" requiredMessage="No Handphone Tidak Boleh Kosong ">
+                                            <f:validateLength minimum = "3" maximum = "14" />
+                                        </h:inputText>
+                                       <label for="nohp" class="teal-text">No Handphone</label>
+                                       <h:message for="nohp" style="color:red" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m8">
+                                    <div class="input-field">
+                                        <h:inputTextarea id="address" value="#{dokterBean.dokter.alamat}" styleClass="materialize-textarea"  />
+                                        <label for="address" class="teal-text">Alamat</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m12">
+                                    <h:commandButton value="Submit" action="#{navigasiBean.goToDokterListForm()}" type="submit"
+                                                     styleClass="btn waves-effect waves-light" actionListener="#{dokterBean.submitDokter}">
+                                    </h:commandButton>
+                                    <span></span>
+                                    <h:commandButton value="Cancel" action="#{navigasiBean.goToDokterListForm()}"
+                                                     styleClass="btn waves-effect waves-light red">
+                                    </h:commandButton>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
